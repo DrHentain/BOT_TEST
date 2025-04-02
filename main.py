@@ -71,7 +71,7 @@ def handle_approval_request(message):
     chat_id = message.chat.id
     # Создаём фейковое согласование
     sogl = "Согласование примера"
-    approvers = ['Иванов', 'Петров']  # Фейковый список согласантов
+    approvers = ['Иванов', 'Петров', "Панов"]  # Фейковый список согласантов
     # Сохраняем статусы согласантов
     approval_status[chat_id] = {approver: "⏳ Ожидает согласования" for approver in approvers}
     # Формируем статусы согласантов

@@ -1,0 +1,114 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  :root {
+    --text-color-default: rgba(0, 0, 0, 0.9);
+    --text-color-secondary: rgba(0, 0, 0, 0.59);
+    --font-title: 700 18.5px Poppins, sans-serif;
+    --font-content: 700 16px Poppins, sans-serif;
+    --container-padding: 13px 24.5px;
+    --animation-top: 5px;
+    --icon-size: 24px;
+    --icon-margin: 10px;
+  }
+  
+  
+  /* General Styles */
+  a {
+    text-decoration: none;
+    color: black;
+  }
+  
+  .background {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    min-width: 387px;
+    padding: 56px 0 55px 0;  /* Vertical Padding */
+    background: #fff; /* White background */
+  }
+  
+  /* Shared container styles */
+  .container, .Shadow {
+      display: flex;
+      align-items: center; /* Center items vertically */
+      border-radius: 20px;
+      margin-bottom: 10px; /* Gap between elements */
+  }
+  
+  .Shadow {
+    background-color: #0ef2fa;
+    padding: var(--container-padding); /* Use variable */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  .Shadow:hover {
+    transform: scale(0.95);
+    box-shadow: none;
+    background-color: #75c3d1; /* Lighter hover color */
+    
+  }
+  
+  
+  .container {
+    background-color: var(--primary-bg);
+    padding: var(--container-padding);
+    transition: background-color 0.3s;
+  }
+  .container:hover {
+    background-color: var(--hover-bg);
+  }
+  
+  
+  .icon {
+    width: var(--icon-size);
+    height: var(--icon-size);
+    margin-right: var(--icon-margin);
+    flex-shrink: 0;  /* Prevents icon from shrinking */
+  }
+  
+  
+  /* Specific Styles */
+  .create-issue-button-style {
+    font: var(--font-content);
+    color: var(--text-color-default);
+  }
+  
+  .TopTextBlock { /* No need to set this up - will use container */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+  
+  .circular-avatar-img {
+    display: block;
+    margin: 0 auto;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    box-shadow: 0 7px 20px rgba(0, 0, 0, 0.25);
+    object-fit: cover;
+    border: none;
+  }
+  
+  .TextBlock2 {
+    margin-top: var(--container-padding);
+    text-align: center; /* Center text */
+  }
+  
+  .Text2 {
+    font: var(--font-title);
+    color: var(--text-color-secondary);
+    margin: 0;
+  }
+  
+  .Text{
+      font: var(--font-title);
+      color: var(--text-color-default);
+      margin: 0;
+  }
+  .Indentation { margin-top: 42px; } /* Don't need complex flex */

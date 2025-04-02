@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
+    <title>Инструкции</title>
+</head>
+<body>
+    <div class="background">
+        <div class="TopTextBlock">
+            <div class="TextContainer">
+                <p class="Text">Инструкции</p>
+            </div>
+        </div>
+        <div class="TextBlock2">
+           <div class="vertical-menu-container">
+                <!-- Dynamic Instruction buttons -->
+                 {% for instruction_file in instruction_files %}
+                  <div class="vertical-menu-container">
+                    <a class="download-button" href="/instructions/{{ instruction_file }}" download="{{instruction_file}}">
+                        <div class="Shadow">
+                            <div class="container">
+                                    <img src="{{ url_for('static', filename='iconsMain/free-icon-instructions-5269835.png') }}" class="icon">
+                                    <p class="create-issue-button-style">{{ instruction_file | replace(".pdf", "") }}</p>
+                            </div>
+                         </div>
+                      </a>
+                    </div>
+                 {% endfor %}
+               <!-- Return to Main Menu Button -->
+               <div class="vertical-menu-container">
+                <a href="/" style="text-decoration: none;">
+                    <div class="Shadow">
+                       <div class="container">
+                            <img src="{{ url_for('static', filename='iconsMain/free-icon-back-arrow-148474.png') }}" class="icon">
+                            <p class="create-issue-button-style">Вернуться в главное меню</p>
+                        </div>
+                    </div>
+                  </a>
+               </div>
+             </div>
+        </div>
+    </div>
+</body>
+</html>

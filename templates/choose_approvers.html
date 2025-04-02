@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Выбор согласующих</title>
+</head>
+<body>
+  <h1>Выберите согласующих для {{sogl}}</h1>
+  <form method="post">
+        <label for="sender_name">Ваше имя:</label>
+         <input type="text" id="sender_name" name="sender_name" required><br><br>
+      {% for id, name in approvers.items() %}
+          <input type="checkbox" id="{{ id }}" name="approvers" value="{{ name }}">
+          <label for="{{ id }}">{{ name }}</label><br>
+      {% endfor %}
+      <button type="submit">Отправить</button>
+      <a href="/">
+            <div class="Shadow">
+              <div class="container">
+                <img src="static/iconsObr/free-icon-turn-back-4286274.png" class="icon">
+                <p class="create-issue-button-style">Вернуться в главное меню</p>
+              </div>
+            </div>
+      </a>
+  </form>
+</body>
+</html>

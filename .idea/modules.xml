@@ -4,8 +4,8 @@
     <modules>
       <module fileurl="file://$USER_HOME$/Desktop/bot/.idea/.idea/.idea.iml" filepath="$USER_HOME$/Desktop/bot/.idea/.idea/.idea.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/BOT_TEST.iml" filepath="$PROJECT_DIR$/.idea/BOT_TEST.iml" />
-      <module fileurl="file://$USER_HOME$/Desktop/bot/static/.idea/static.iml" filepath="$USER_HOME$/Desktop/bot/static/.idea/static.iml" />
-      <module fileurl="file://$USER_HOME$/Desktop/bot/templates/.idea/templates.iml" filepath="$USER_HOME$/Desktop/bot/templates/.idea/templates.iml" />
+      <module fileurl="file://$PROJECT_DIR$/static/.idea/static.iml" filepath="$PROJECT_DIR$/static/.idea/static.iml" />
+      <module fileurl="file://$PROJECT_DIR$/templates/.idea/templates.iml" filepath="$PROJECT_DIR$/templates/.idea/templates.iml" />
     </modules>
   </component>
 </project>
