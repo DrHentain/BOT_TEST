@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="static/style.css">
+    <title>Главная</title>
+    <link rel="#" href="#">
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
+    <script>
+      $('div').html("<div></div>");
+    </script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="x-apple-disable-message-reformatting" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+    <!--Добро пожаловать-->
+      <div class="background"><!--определяет размер нашей области-->
+        <div class="TopTextBlock ">
+          <div class="TextContainer">
+            <p class="Text">Добро пожаловать!</p>
+            <div class="Indentation">
+                <!--Чтобы иконки отображались нужно static/папка/иконка-->
+              <img src="static/iconsMain/photo_2024-09-20_09-54-22.jpg" class="circular-avatar-img" />
+            </div>
+          </div>
+        </div>
+        <!--Чат бот для сотрудников-->
+        <div class="TextBlock2">
+          <p class="Text2">Чат-бот для сотрудников</p>
+          <div class="vertical-menu-container">
+            <!--Кнопка для создания обращения-->
+            <a href="/create_request">
+            <div class="Shadow">
+              <div class="container">
+                <img src="static/iconsMain/free-icon-new-page-6604902.png" class="icon">
+                <!--ССылка в сибирь(создать обращени)-->
+                <p class="create-issue-button-style">Создать обращение</p>
+              </div>
+            </div>
+            </a>
+            <!--Кнопка для согласования доступа-->
+
+               <a href="/access_approval">
+            <div class="Shadow">
+              <div class="container">
+                <img src="static/iconsMain/free-icon-handshake-1006657.png" class="icon" />
+                <p class="create-issue-button-style">Согласование доступа</p>
+              </div>
+            </div>
+            </a>
+            <!--Кнопка инструкции-->
+          <a href="/instructions">
+            <div class="Shadow">
+              <div class="container">
+                <img src="static/iconsMain/free-icon-book-1773049.png" class="icon"/>
+                <p class="create-issue-button-style">Инструкции</p>
+              </div>
+            </div>
+          </a>
+            <!--Кнопка медиаресурсы-->
+            <a href="/media_resources">
+            <div class="Shadow">
+              <div class="container">
+                <img src="static/iconsMain/free-icon-social-media-2728217.png" class="icon" />
+                <p class="create-issue-button-style">Медиаресурсы</p>
+              </div>
+            </div>
+          </a>
+            <!--Кнопка обратная связь-->
+            <a href="/feedback">
+            <div class="Shadow">
+              <div class="container">
+                <img src="static/iconsMain/free-icon-help-desk-4961759.png" class="icon">
+                <p class="create-issue-button-style">Обратная связь</p>
+              </div>
+            </div>
+            </a>
+          </div>
+        </div>
+      </div>
+<script src="https://telegram.org/js/telegram-web-app.js?56"></script>
+</body>
+</html>
