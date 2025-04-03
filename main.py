@@ -26,10 +26,10 @@ Web_Prilojenie = 'Веб-приложение'
 Web_app_open = 'Открыть веб-приложение'
 
 # Наши согласанты
-employees = ["Иванов", "Гаджин", "Торогов", "Панов"]
+employees = ["Иванов", "Гаджин", "Панов"]
 
 # ID согласантов
-employee_ids = {"Иванов": 1076447694, "Гаджин": 1912799360, "Панов": 797809533}
+employee_ids = {"Иванов": 1076447694, "Гаджин": 6988657511, "Панов": 797809533}
 
 def generate_status_message(sogl, statuses):
     status_lines = [f"{approver} - {status}" for approver, status in statuses.items()]
