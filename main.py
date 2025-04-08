@@ -97,7 +97,7 @@ def handler(message):
                          reply_markup=markup)
     elif message.text == Web_Prilojenie:
         markup = types.InlineKeyboardMarkup()
-        web_app_button = types.InlineKeyboardButton(text="Открыть веб-приложение",url="https://chatgptchatapp.com/" )
+        web_app_button = types.InlineKeyboardButton(text="Открыть веб-приложение",url="https://chatgptchatapp.com/" ) #веб приложение из списка
         markup.add(web_app_button)
         bot.send_message(chat_id, "Перейдите в приложение", reply_markup=markup)
     elif message.text == SOGL_TECH:
