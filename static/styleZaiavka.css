@@ -1,0 +1,43 @@
+/* Общие стили для контейнера формы */
+.form-container {
+  margin: 40px auto; /* Увеличенные отступы от краев */
+  padding: 30px;     /* Внутренние отступы формы */
+  max-width: 800px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+/* Стили для элементов списка согласующих */
+.approver-item {
+  background: #f8f9fa;     /* Фоновый цвет элементов */
+  margin: 10px 0;          /* Отступы между элементами */
+  padding: 15px 20px;      /* Внутренние отступы */
+  border-radius: 8px;
+  transition: transform 0.2s;
+}
+
+.approver-item:hover {
+  transform: translateX(5px);
+}
+
+/* Увеличение расстояния снизу формы */
+.form-actions {
+  margin-top: 30px;        /* Отступ сверху для кнопок */
+  padding-top: 20px;       /* Дополнительный отступ */
+  border-top: 1px solid #eee;
+}
+
+/* Увеличение отступов для тела страницы */
+body {
+  margin: 20px;
+  padding: 20px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+/* Дополнительные отступы для кнопки возврата */
+.return-button {
+  margin-top: 25px;        /* Увеличенный отступ сверху */
+  padding: 12px 20px;      /* Размер кнопки */
+}
