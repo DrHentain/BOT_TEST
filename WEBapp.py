@@ -240,5 +240,9 @@ def feedback():
 def success():
     return render_template("success.html")
 
+@app.route("/Time")
+def Time():
+    return render_template("Time.html")
+
 if __name__ == "__main__":
     app.run(debug=True, host='0.0.0.0')
