@@ -231,6 +231,9 @@ def choose_approvers(filename):
         as_attachment=True,
         download_name=filename
     )
+@app.route('/')
+def home():
+    return "главная страница"
 
 @app.route("/feedback")
 def feedback():
@@ -244,5 +247,9 @@ def success():
 def Time():
     return render_template("Time.html")
 
+@app.route("/Opisanie_Peoblem")
+def Opisanie_Peoblem():
+    return render_template("Opisanie_Peoblem.html")
+
 if __name__ == "__main__":
-    app.run(debug=True, host='0.0.0.0')
+    app.run(debug=True, host='0.0.0.0', port=5000)

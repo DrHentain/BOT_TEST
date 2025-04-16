@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.0/codemirror.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.0/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.0/mode/htmlmixed/htmlmixed.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.0/mode/css/css.min.js"></script>
+    <style>
+        .editor-container {
+            display: flex;
+            gap: 10px;
+            height: 80vh;
+        }
+        .code-editor {
+            flex: 1;
+            border: 1px solid #ccc;
+        }
+        #preview {
+            flex: 1;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="editor-container">
+        <div class="code-editor" id="html-editor"></div>
+        <div class="code-editor" id="css-editor"></div>
+        <iframe id="preview"></iframe>
+    </div>
+
+    <div class="TextBlock2">
+              <a href="/">
+                  <div class="Shadow">
+                     <div class="container">
+                        <img src="static/iconsObr/free-icon-turn-back-4286274.png" class="icon">
+                        <p class="create-issue-button-style">Вернуться в главное меню</p>
+                     </div>
+                  </div>
+            </a>
+          </div>
+
+    <script>
+        // Инициализация редакторов
+        const htmlEditor = CodeMirror(document.getElementById('html-editor'), {
+            mode: 'htmlmixed',
+            lineNumbers: true,
+            theme: 'default'
+        });
+
+        const cssEditor = CodeMirror(document.getElementById('css-editor'), {
+            mode: 'css',
+            lineNumbers: true,
+            theme: 'default'
+        });
+
+        // Обновление предпросмотра
+        function updatePreview() {
+            const html = htmlEditor.getValue();
+            const css = cssEditor.getValue();
+            const preview = document.getElementById('preview').contentWindow.document;
+
+            preview.open();
+            preview.write(`
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <style>${css}</style>
+                </head>
+                <body>${html}</body>
+                </html>
+            `);
+            preview.close();
+        }
+
+        // Обновление при изменении кода
+        htmlEditor.on('change', updatePreview);
+        cssEditor.on('change', updatePreview);
+        updatePreview(); // Инициализация
+    </script>
+</body>
+</html>
