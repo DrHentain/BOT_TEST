@@ -1,82 +1,83 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.0/codemirror.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.0/codemirror.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.0/mode/htmlmixed/htmlmixed.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.0/mode/css/css.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Окно сообщения</title>
     <style>
-        .editor-container {
-            display: flex;
-            gap: 10px;
-            height: 80vh;
+        body {
+            margin: 0;
+            padding: 20px 20px 80px 20px;
+            background-color: #0ef2fa;
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            box-sizing: border-box;
         }
-        .code-editor {
-            flex: 1;
-            border: 1px solid #ccc;
+
+        .header {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
         }
-        #preview {
-            flex: 1;
-            border: 1px solid #ccc;
-            padding: 10px;
+
+        #messageInput {
+            width: 100%;
+            height: 65vh; /* Уменьшил высоту для места под заголовок */
+            padding: 20px;
+            border: none;
+            border-radius: 15px;
+            font-size: 16px;
+            resize: none;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-sizing: border-box;
+        }
+
+        #sendButton {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            padding: 15px 30px;
+            background-color: #fff;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+
+        #sendButton:hover {
+            transform: scale(1.05);
         }
     </style>
 </head>
 <body>
-    <div class="editor-container">
-        <div class="code-editor" id="html-editor"></div>
-        <div class="code-editor" id="css-editor"></div>
-        <iframe id="preview"></iframe>
-    </div>
-
-    <div class="TextBlock2">
-              <a href="/">
-                  <div class="Shadow">
-                     <div class="container">
-                        <img src="static/iconsObr/free-icon-turn-back-4286274.png" class="icon">
-                        <p class="create-issue-button-style">Вернуться в главное меню</p>
-                     </div>
-                  </div>
-            </a>
-          </div>
+    <div class="header">Опишите проблему</div> <!-- Добавленная надпись -->
+    <textarea
+        id="messageInput"
+        placeholder="Напишите сообщение..."
+        rows="10"
+    ></textarea>
+    <button id="sendButton" onclick="sendMessage()">➤</button>
 
     <script>
-        // Инициализация редакторов
-        const htmlEditor = CodeMirror(document.getElementById('html-editor'), {
-            mode: 'htmlmixed',
-            lineNumbers: true,
-            theme: 'default'
-        });
+        function sendMessage() {
+            const input = document.getElementById('messageInput');
+            const message = input.value.trim();
 
-        const cssEditor = CodeMirror(document.getElementById('css-editor'), {
-            mode: 'css',
-            lineNumbers: true,
-            theme: 'default'
-        });
-
-        // Обновление предпросмотра
-        function updatePreview() {
-            const html = htmlEditor.getValue();
-            const css = cssEditor.getValue();
-            const preview = document.getElementById('preview').contentWindow.document;
-
-            preview.open();
-            preview.write(`
-                <!DOCTYPE html>
-                <html>
-                <head>
-                    <style>${css}</style>
-                </head>
-                <body>${html}</body>
-                </html>
-            `);
-            preview.close();
+            if (message) {
+                console.log('Отправлено:', message);
+                input.value = '';
+                input.focus();
+            }
         }
 
-        // Обновление при изменении кода
-        htmlEditor.on('change', updatePreview);
-        cssEditor.on('change', updatePreview);
-        updatePreview(); // Инициализация
+        document.getElementById('messageInput').addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.key === 'Enter') {
+                sendMessage();
+            }
+        });
     </script>
 </body>
 </html>
