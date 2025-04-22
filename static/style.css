@@ -41,7 +41,7 @@
   }
   
   .Shadow {
-    background-color: #0ef2fa;
+    background-color: #6CD4E3;
     padding: var(--container-padding); /* Use variable */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
