@@ -1,6 +1,6 @@
 #from WebAppBot import (update_approvers_keyboard, get_all_users)
 from flask import Flask, render_template,session, request, redirect, url_for, jsonify, send_file
-from config import CHAT_TOKEN, EMPLOYEE_IDS, BOT_TOKEN, USER_CHAT_ID_MAPPING #доставал из config
+from config import CHAT_TOKEN, EMPLOYEE_IDS, BOT_TOKEN, USER_CHAT_ID_MAPPING #данные из config
 import telebot, random, os, logging
 from telebot import types, TeleBot
 
@@ -233,7 +233,7 @@ def choose_approvers(filename):
     )
 @app.route('/')
 def home():
-    return "главная страница"
+    return render_template("index.html")
 
 @app.route("/feedback")
 def feedback():
