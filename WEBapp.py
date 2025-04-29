@@ -142,7 +142,6 @@ def handle_approval_decision(call):
 def index():
     return render_template("index.html")
 
-
 def get_pdf_list():
     """Get a list of PDF files from the pdf folder."""
     pdf_files = []
