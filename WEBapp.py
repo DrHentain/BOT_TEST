@@ -138,6 +138,10 @@ def handle_approval_decision(call):
     else:
       logging.error(f"Error could not find initiator {initiator_chat_id} in the approval status")
 
+@app.route("/", methods = ["GET"])
+def index():
+    return render_template("index.html")
+
 
 def get_pdf_list():
     """Get a list of PDF files from the pdf folder."""
@@ -159,9 +163,6 @@ def get_instructions():
             pdf_files.append(filename)
     return pdf_files
 
-@app.route("/", methods = ["GET"])
-def index():
-    return render_template("index.html")
 
 @app.route("/create_request")
 def create_request():
