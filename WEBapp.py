@@ -231,7 +231,7 @@ def choose_approvers(filename):
         as_attachment=True,
         download_name=filename
     )
-@app.route('/')
+@app.route('/') #небольшие изменения в коде
 def index():
     return render_template("index.html")
 
