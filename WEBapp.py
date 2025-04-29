@@ -169,7 +169,7 @@ def create_request():
     return render_template("templates/create_request.html")
 
 
-@app.route("templates/create_request/<obr>", methods=["GET", "POST"], endpoint="create_request_route")
+@app.route("create_request/<obr>", methods=["GET", "POST"], endpoint="create_request_route")
 def create_request(obr):
     if request.method == "POST":
         selected_approvers = request.form.getlist("approvers")
@@ -178,13 +178,13 @@ def create_request(obr):
         handle_done(chat_id, selected_approvers, obr, sender_name)
         session['chat_id'] = None
         return redirect(url_for("success"))
-    return render_template("choose_approvers.html", approvers=EMPLOYEE_IDS, obr=obr)
+    return render_template("templates/choose_approvers.html", approvers=EMPLOYEE_IDS, obr=obr)
 
-@app.route("templates/access_approval", methods = ["GET"])
+@app.route("access_approval", methods = ["GET"])
 def access_approval():
-    return render_template("access_approval.html")
+    return render_template("templates/access_approval.html")
 
-@app.route("templates/access_approval/<sogl>", methods=["GET", "POST"])
+@app.route("access_approval/<sogl>", methods=["GET", "POST"])
 def choose_approvers(sogl):
     if request.method == "POST":
         selected_approvers = request.form.getlist("approvers")
@@ -193,13 +193,13 @@ def choose_approvers(sogl):
         handle_done(chat_id, selected_approvers, sogl, sender_name)
         session['chat_id'] = None
         return redirect(url_for("success"))
-    return render_template("choose_approvers.html", approvers=EMPLOYEE_IDS, sogl=sogl)
+    return render_template("templates/choose_approvers.html", approvers=EMPLOYEE_IDS, sogl=sogl)
 
-@app.route("templates/instructions")
+@app.route("instructions")
 def instructions():
     """Show a list of available PDF files."""
     instruction_files = get_instructions()
-    return render_template('instructions.html', instruction_files=instruction_files)
+    return render_template('templates/instructions.html', instruction_files=instruction_files)
 
 
 @app.route("templates/instructions/<filename>", methods=["GET", "POST"], endpoint="instructions_open")
@@ -214,13 +214,13 @@ def instructions_open(filename):
         as_attachment=True,
         download_name=filename
     )
-@app.route("templates/media_resources")
+@app.route("media_resources")
 def media_resources():
     """Show a list of available PDF files."""
     pdf_files = get_pdf_list()
-    return render_template("media_resources.html", pdf_files=pdf_files)
+    return render_template("templates/media_resources.html", pdf_files=pdf_files)
 
-@app.route("templates/media_resources/<filename>", methods=["GET", "POST"], endpoint="media_download")
+@app.route("media_resources/<filename>", methods=["GET", "POST"], endpoint="media_download")
 def choose_approvers(filename):
     """Allow users to download a specific PDF file."""
     pdf_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
@@ -233,21 +233,21 @@ def choose_approvers(filename):
         download_name=filename
     )
 
-@app.route("templates/feedback")
+@app.route("feedback")
 def feedback():
-    return render_template("feedback.html")
+    return render_template("templates/feedback.html")
 
-@app.route("templates/success")
+@app.route("success")
 def success():
-    return render_template("success.html")
+    return render_template("templates/success.html")
 
-@app.route("templates/Time")
+@app.route("Time")
 def Time():
-    return render_template("Time.html")
+    return render_template("templates/Time.html")
 
-@app.route("templates/Opisanie_Peoblem")
+@app.route("Opisanie_Peoblem")
 def Opisanie_Peoblem():
-    return render_template("Opisanie_Peoblem.html")
+    return render_template("templates/Opisanie_Peoblem.html")
 
 if __name__ == "__main__":
     app.run(debug=True, host='0.0.0.0', port=5000)
