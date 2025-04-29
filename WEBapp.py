@@ -232,7 +232,7 @@ def choose_approvers(filename):
         download_name=filename
     )
 @app.route('/')
-def home():
+def index():
     return render_template("index.html")
 
 @app.route("/feedback")
